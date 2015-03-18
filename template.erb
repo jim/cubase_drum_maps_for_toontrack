@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DrumMap>
+  <string name="Name" value="<%= kit_name %>" wide="true"/>
+  <list name="Quantize" type="list">
+     <item>
+        <int name="Grid" value="4"/>
+        <int name="Type" value="0"/>
+        <float name="Swing" value="0"/>
+        <int name="Unquantized" value="0"/>
+        <int name="Legato" value="50"/>
+     </item>
+  </list>
+  <list name="Map" type="list">
+  <% items.reverse.each do |item| %>
+    <item>
+      <int name="INote" value="<%= item[:note] %>"/>
+      <int name="ONote" value="<%= item[:note] %>"/>
+      <int name="Channel" value="9"/>
+      <float name="Length" value="200"/>
+      <int name="Mute" value="0"/>
+      <int name="DisplayNote" value="<%= item[:note] %>"/>
+      <int name="HeadSymbol" value="0"/>
+      <int name="Voice" value="0"/>
+      <int name="PortIndex" value="0"/>
+      <string name="Name" value="<%= item[:name] %>" wide="true"/>
+      <int name="QuantizeIndex" value="0"/>
+    </item>
+  <% end %>
+  </list>
+  <list name="Order" type="int">
+    <% items.size.times.each do |i| %>
+    <item value="<%= i %>"/>
+    <% end %>
+  </list>
+  <list name="OutputDevices" type="list">
+     <item>
+        <string name="DeviceName" value="Default Device"/>
+        <string name="PortName" value="Default Port"/>
+     </item>
+  </list>
+</DrumMap>
